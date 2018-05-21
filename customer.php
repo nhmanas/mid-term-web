@@ -20,7 +20,7 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
     $sql = "INSERT INTO users (username, address) VALUES ('".$username."', '".$address."')";
 
     if ($mydb->query($sql) === TRUE) {
-        header("Location: /order.php");
+        echo "record success";
     } else {
         echo "Error: " . $sql . "<br>" . $mydb->error;
     }
