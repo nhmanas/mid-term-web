@@ -1,9 +1,28 @@
 <?php 
+@include ('bagla.php');
 if(isset($_POST['next'])){
     $regions = array();
     $orderTypes = array();
     $regions = @$_POST['region'];
     $orderTypes = @$_POST['orderType'];
+    $sql = "SELECT * FROM urun";
+    $urunler = $mydb->query($sql);
+    $pizzas = array();
+    $beverages = array();
+    $desserts = array();
+    if ($urunler->num_rows > 0) {
+        foreach($urunler as $urun){
+            if($urun['type'] == 1){
+                array_push($pizzas,$urun);
+            }
+            if($urun['type'] == 2){
+                array_push($beverages,$urun);
+            }
+            if($urun['type'] == 3){
+                array_push($desserts,$urun);
+            }                        
+        }
+    }
 }
 
 ?>
@@ -13,6 +32,7 @@ if(isset($_POST['next'])){
         <title>Order</title>
     </head>
     <body>
+    <form action="customer.php" method="post">
     
     <?php 
         $pizza = false;
@@ -47,56 +67,18 @@ if(isset($_POST['next'])){
                 <td><center>Number</center></td>
                 <td><center>Availability</center></td>
             </tr>
-            <form action="">
+            <?php foreach($pizzas as $pizza){ ?>
             <tr>
-                <td><input type="checkbox" name="orderType" value="vPizza"> Vegeterian Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 15 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 17 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 20 TL</td>
+                <td><input type="checkbox" name="order_id[]" value="<?= $pizza['id'] ?>"> <?= $pizza['name'] ?></td>
+                <td><input type="radio" name="price" value="1"> <?= $pizza['small'] ?> TL</td>
+                <td><input type="radio" name="price" value="2"> <?= $pizza['medium'] ?> TL</td>
+                <td><input type="radio" name="price" value="3"> <?= $pizza['large'] ?> TL</td>
                 <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
+                <td><input type="text" name="availability" value="<?= $pizza['availability'] ?>"></td>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="cPizza"> Chicken Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 18 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 20 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 22 TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="mPizza"> Meat Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 15 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 17 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 20 TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="pPizza"> Pepperoni Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 19 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 21 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 23 TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="mixPizza"> Mix Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 20 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 22 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 24 TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="vPizza"> COME308 Special Pizza</td>
-                <td><input type="checkbox" name="size" value="small"> 22 TL</td>
-                <td><input type="checkbox" name="size" value="medium"> 23 TL</td>
-                <td><input type="checkbox" name="size" value="large"> 26 TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            </form><br>
+            <?php } ?>
+
+            <br>
         </table> <br> <br>
     <!-- @pizza -->
     <?php } ?>
@@ -109,44 +91,15 @@ if(isset($_POST['next'])){
                 <td colspan="1"><center>Price</center></td>
                 <td><center>Number</center></td>
                 <td><center>Availability</center></td>
-            <form action="">
-            <tr>
-                <td><input type="checkbox" name="orderType" value="water"> Water</td>
-                <td><center>2 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
             </tr>
+            <?php foreach($beverages as $beverage){ ?>
             <tr>
-                <td><input type="checkbox" name="orderType" value="cola"> Cola</td>
-                <td><center>4 TL</center></td>
+                <td><input type="checkbox" name="order_id[]" value="<?= $beverage['id'] ?>"> <?= $beverage['name'] ?></td>
+                <td><center><?= $beverage['small'] ?> TL</center></td>
                 <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
+                <td><input type="text" name="availability" value="<?= $beverage['availability'] ?>"></td>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="beer"> Beer</td>
-                <td><center>6 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="ayran"> Ayran</td>
-                <td><center>3 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="tea"> Tea</td>
-                <td><center>4 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="coffeee"> Coffee</td>
-                <td><center>4 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            </form>
+            <?php } ?>
         </table> <br> <br>
     <!-- @Beverage -->
     <?php } ?>
@@ -159,46 +112,19 @@ if(isset($_POST['next'])){
                 <td colspan="1"><center>Price</center></td>
                 <td><center>Number</center></td>
                 <td><center>Availability</center></td>
-            <form action="">
-            <tr>
-                <td><input type="checkbox" name="orderType" value="aPie"> Apple Pie</td>
-                <td><center>2 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
             </tr>
+            <?php foreach($desserts as $dessert){ ?>
             <tr>
-                <td><input type="checkbox" name="orderType" value="cCake"> Chocolate Cake</td>
-                <td><center>4 TL</center></td>
+                <td><input type="checkbox" name="order_id[]" value="<?= $dessert['id'] ?>"> <?= $dessert['name'] ?></td>
+                <td><center><?= $dessert['small'] ?> TL</center></td>
                 <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
+                <td><input type="text" name="availability" value="<?= $dessert['availability'] ?>"></td>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="bPudding"> Bananna Pudding</td>
-                <td><center>6 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="iCream"> Ice Cream</td>
-                <td><center>3 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="qurabiya"> Qurabiya</td>
-                <td><center>4 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderType" value="sWafel"> Stroopwafel</td>
-                <td><center>4 TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value=""></td>
-            </tr>
-            </form>
+            <?php } ?>
         </table>
     <!-- @Dessert -->
     <?php } ?>
+    <button name="submit" id="submit" type="submit" style="margin-top: 5px;">Submit</button>
+    </form>
     </body>
 </html>
