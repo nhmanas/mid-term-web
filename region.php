@@ -8,10 +8,10 @@
             Regions:
             <br>
             <form action="">
-                <input type="radio" name="region" value="pozcu"> Pozcu
-                <input type="radio" name="region" value="mezitli"> Mezitli
-                <input type="radio" name="region" value="torosUni"> Toros University
-                <input type="radio" name="region" value="others"> Others <br><br>
+                <input type="checkbox" name="region" value="pozcu"> Pozcu
+                <input type="checkbox" name="region" value="mezitli"> Mezitli
+                <input type="checkbox" name="region" value="torosUni"> Toros University
+                <input type="checkbox" name="region" value="others"> Others <br><br>
                 Type of Ordering: <br><br>
                 <input type="checkbox" name="orderType" value="pizza"> Pizza
                 <input type="checkbox" name="orderType" value="beverage"> Beverage
