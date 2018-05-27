@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
             foreach($uruns as $urun){
                 if($price == 1){
                     $total_price += $urun['small'];
-                }
+                }  
                 if($price == 2){
                     $total_price += $urun['medium'];
                 }
