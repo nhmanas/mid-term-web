@@ -1,8 +1,38 @@
+<?php 
+if(isset($_POST['next'])){
+    $regions = array();
+    $orderTypes = array();
+    $regions = @$_POST['region'];
+    $orderTypes = @$_POST['orderType'];
+}
+
+?>
+
 <html>
     <head>
         <title>Order</title>
     </head>
     <body>
+    
+    <?php 
+        $pizza = false;
+        $beverage = false;
+        $dessert = false;
+        foreach($orderTypes as $orderType){
+            if($orderType == "pizza"){
+                $pizza = true;
+            }
+            if($orderType == "beverage"){
+                $beverage = true;
+            }      
+            if($orderType == "dessert"){
+                $dessert = true;
+            }     
+        }
+    ?>
+
+    <?php if($pizza){ ?>
+    <!-- Pizza -->
     Pizza: <br>
         <table border="0">
             <tr>
@@ -68,6 +98,10 @@
             </tr>
             </form><br>
         </table> <br> <br>
+    <!-- @pizza -->
+    <?php } ?>
+    <?php if($beverage){ ?>
+    <!-- Beverage -->
     Beverage: <br>
         <table border="0">
             <tr>
@@ -114,6 +148,10 @@
             </tr>
             </form>
         </table> <br> <br>
+    <!-- @Beverage -->
+    <?php } ?>
+    <?php if($dessert){ ?>
+    <!-- Dessert -->
         Dessert: <br>
         <table border="0">
             <tr>
@@ -160,5 +198,7 @@
             </tr>
             </form>
         </table>
+    <!-- @Dessert -->
+    <?php } ?>
     </body>
 </html>

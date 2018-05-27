@@ -7,23 +7,15 @@
         <p>
             Regions:
             <br>
-<<<<<<< HEAD
-            <form action="">
-                <input type="checkbox" name="region" value="pozcu"> Pozcu
-                <input type="checkbox" name="region" value="mezitli"> Mezitli
-                <input type="checkbox" name="region" value="torosUni"> Toros University
-                <input type="checkbox" name="region" value="others"> Others <br><br>
-=======
             <form action="order.php" method="post">
-                <input type="radio" name="region" value="pozcu"> Pozcu
-                <input type="radio" name="region" value="mezitli"> Mezitli
-                <input type="radio" name="region" value="torosUni"> Toros University
-                <input type="radio" name="region" value="others"> Others <br><br>
->>>>>>> b8e0b8a730839600551afc8ba4c763651a9039e9
+                <input type="checkbox" name="region[]" value="pozcu"> Pozcu
+                <input type="checkbox" name="region[]" value="mezitli"> Mezitli
+                <input type="checkbox" name="region[]" value="torosUni"> Toros University
+                <input type="checkbox" name="region[]" value="others"> Others <br><br>
                 Type of Ordering: <br><br>
-                <input type="checkbox" name="orderType" value="pizza"> Pizza
-                <input type="checkbox" name="orderType" value="beverage"> Beverage
-                <input type="checkbox" name="orderType" value="dessert"> Dessert <br><br>
+                <input type="checkbox" name="orderType[]" value="pizza"> Pizza
+                <input type="checkbox" name="orderType[]" value="beverage"> Beverage
+                <input type="checkbox" name="orderType[]" value="dessert"> Dessert <br><br>
                 <button name="next" id="next" type="submit">Next</button>
             </form>
         </p>
