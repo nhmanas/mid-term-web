@@ -6,7 +6,7 @@ if(isset($_POST['customer_number'])){
   $result = $mydb->query($sql);
 
   if ($result->num_rows > 0) {
-    header("Location: ./order.php");
+    header("Location: ./region.php");
   } else {
       echo "no results";
   }
