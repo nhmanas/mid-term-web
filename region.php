@@ -7,7 +7,7 @@
         <p>
             Regions:
             <br>
-            <form action="">
+            <form action="order.php" method="post">
                 <input type="radio" name="region" value="pozcu"> Pozcu
                 <input type="radio" name="region" value="mezitli"> Mezitli
                 <input type="radio" name="region" value="torosUni"> Toros University
@@ -16,7 +16,7 @@
                 <input type="checkbox" name="orderType" value="pizza"> Pizza
                 <input type="checkbox" name="orderType" value="beverage"> Beverage
                 <input type="checkbox" name="orderType" value="dessert"> Dessert <br><br>
-                <input type="button" name="next" value="Next">
+                <button name="next" id="next" type="submit">Next</button>
             </form>
         </p>
     </body>
