@@ -34,14 +34,53 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
 <html>
     <head>
         <title>Register / Login</title>
+        <style>
+            .button {
+              background-color: #4CAF50; /* Green */
+              border: none;
+              color: white;
+              padding: 2px 4px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              -webkit-transition-duration: 0.4s; /* Safari */
+              font-size: 14px;
+            }
+            .button1 {
+                background-color: white; 
+                color: black; 
+                border: 2px solid #4CAF50;
+            }
+
+            .button1:hover {
+                background-color: #4CAF50;
+                color: white;
+            }
+            .button2 {
+              background-color: white; 
+              color: black; 
+              border: 2px solid #008CBA;
+            }
+
+            .button2:hover {
+                background-color: #008CBA;
+                color: white;
+            }
+            .bodysmall{
+              margin-top: 300px
+            }
+            body {
+              font-family: "Verdana"
+            }
+        </style>
     </head>
-    <body>
+    <body class="bodysmall">
         <center>
         <p>Customer number:
             <form class="" action="customer.php" method="post">
               <input action="" type="text" name="customer_number">
               <br>
-              <button type="submit" name="btn_customer_number">Login</button>
+              <button class="button button1"type="submit" name="btn_customer_number">Login</button>
             </form>
             <br>
             <strong>If you visit our website for the first time please register: </strong>
@@ -49,7 +88,7 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
             <form action="customer.php" method="post">
               Username: <input type="text" name="username">
               <br>Adress: <input type="text" name="address">
-              <br><button type="submit" name="btn_register">Register</button>
+              <br><button class="button button2" type="submit" name="btn_register">Register</button>
             </form>
         </p>
         </center>
