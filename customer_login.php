@@ -77,7 +77,7 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
     <body class="bodysmall">
         <center>
         <p>Customer number:
-            <form class="" action="customer.php" method="post">
+            <form class="" action="region.php" method="post">
               <input action="" type="text" name="customer_number">
               <br>
               <button class="button button1"type="submit" name="btn_customer_number">Login</button>
