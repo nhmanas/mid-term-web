@@ -1,11 +1,13 @@
 <?php
 @include ('bagla.php');
 if(isset($_POST['customer_number'])){
-  $id = @$_POST['customer_number'];
+  $id = @$_POST['customer_number'];  
   $sql = "SELECT * FROM users WHERE id = '".$id."' ";
   $result = $mydb->query($sql);
 
   if ($result->num_rows > 0) {
+    session_start();
+    $_SESSION['user'] = (string)$id;
     header("Location: ./region.php");
   } else {
       echo "no results";

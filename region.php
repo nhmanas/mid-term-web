@@ -1,3 +1,6 @@
+<?php 
+@include ('bagla.php');
+?>
 <html>
     <head>
         <title>Pre-order</title>

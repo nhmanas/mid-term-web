@@ -33,7 +33,6 @@ if(isset($_POST['next'])){
     </head>
     <body>
     <form action="customer.php" method="post">
-    
     <?php 
         $pizza = false;
         $beverage = false;
@@ -70,11 +69,11 @@ if(isset($_POST['next'])){
             <?php foreach($pizzas as $pizza){ ?>
             <tr>
                 <td><input type="checkbox" name="order_id[]" value="<?= $pizza['id'] ?>"> <?= $pizza['name'] ?></td>
-                <td><input type="radio" name="price" value="1"> <?= $pizza['small'] ?> TL</td>
-                <td><input type="radio" name="price" value="2"> <?= $pizza['medium'] ?> TL</td>
-                <td><input type="radio" name="price" value="3"> <?= $pizza['large'] ?> TL</td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value="<?= $pizza['availability'] ?>"></td>
+                <td><input type="radio" name="price<?= $pizza['id'] ?>" value="1"> <?= $pizza['small'] ?> TL</td>
+                <td><input type="radio" name="price<?= $pizza['id'] ?>" value="2"> <?= $pizza['medium'] ?> TL</td>
+                <td><input type="radio" name="price<?= $pizza['id'] ?>" value="3"> <?= $pizza['large'] ?> TL</td>
+                <td><input type="text" name="number<?= $pizza['id'] ?>" value=""></td>
+                <td><input type="text" name="availability<?= $pizza['id'] ?>" value="<?= $pizza['availability'] ?>"></td>
             </tr>
             <?php } ?>
 
@@ -95,9 +94,9 @@ if(isset($_POST['next'])){
             <?php foreach($beverages as $beverage){ ?>
             <tr>
                 <td><input type="checkbox" name="order_id[]" value="<?= $beverage['id'] ?>"> <?= $beverage['name'] ?></td>
-                <td><center><?= $beverage['small'] ?> TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value="<?= $beverage['availability'] ?>"></td>
+                <td><center><?= $beverage['small'] ?> TL</center><input type="hidden" name="price<?= $beverage['id'] ?>" value="<?= $beverage['small'] ?>"></td>
+                <td><input type="text" name="number<?= $beverage['id'] ?>" value=""></td>
+                <td><input type="text" name="availability<?= $beverage['id'] ?>" value="<?= $beverage['availability'] ?>"></td>
             </tr>
             <?php } ?>
         </table> <br> <br>
@@ -116,9 +115,9 @@ if(isset($_POST['next'])){
             <?php foreach($desserts as $dessert){ ?>
             <tr>
                 <td><input type="checkbox" name="order_id[]" value="<?= $dessert['id'] ?>"> <?= $dessert['name'] ?></td>
-                <td><center><?= $dessert['small'] ?> TL</center></td>
-                <td><input type="text" name="number" value=""></td>
-                <td><input type="text" name="availability" value="<?= $dessert['availability'] ?>"></td>
+                <td><center><?= $dessert['small'] ?> TL</center><input type="hidden" name="price<?= $dessert['id'] ?>" value="<?= $dessert['small'] ?>"></td>
+                <td><input type="text" name="number<?= $dessert['id'] ?>" value=""></td>
+                <td><input type="text" name="availability<?= $dessert['id'] ?>" value="<?= $dessert['availability'] ?>"></td>
             </tr>
             <?php } ?>
         </table>
