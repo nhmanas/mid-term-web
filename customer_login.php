@@ -66,17 +66,37 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
                 background-color: #008CBA;
                 color: white;
             }
-            .bodysmall{
-              margin-top: 300px
-            }
             body {
               font-family: "Verdana"
             }
+            #bg {
+		    	position: fixed;
+		    	right: 0;
+		    	bottom: 0;
+		    	min-width: 100%; 
+		    	min-height: 100%;
+		    	z-index: -2;
+			}
+			.content {
+			    position: fixed;
+			    bottom: 0;
+			    background: rgba(0, 0, 0, 0.5);
+			    color: #f1f1f1;
+			    width: 25%;
+			    padding: 20px;
+			    z-index: 2;
+			}
         </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body class="bodysmall">
+    <body>
         <center>
-        <p>Customer number:
+        <div class="bback">
+        <div class="content">
+        	<video autoplay muted loop id="bg">
+			  <source src="bg.mp4" type="video/mp4">
+			</video>
+        	<p>Customer number:
             <form class="" action="customer.php" method="post">
               <input action="" type="text" name="customer_number">
               <br>
@@ -90,7 +110,9 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
               <br>Adress: <input type="text" name="address">
               <br><button class="button button2" type="submit" name="btn_register">Register</button>
             </form>
-        </p>
+        	</p>
+        </div>
+        </div>
         </center>
     </body>
 </html>
