@@ -66,28 +66,26 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
                 background-color: #008CBA;
                 color: white;
             }
-            body {
-              font-family: "Verdana"
-            }
             #bg {
-		    	position: fixed;
-		    	right: 0;
-		    	bottom: 0;
-		    	min-width: 100%; 
-		    	min-height: 100%;
-		    	z-index: -2;
-			}
-			.content {
-			    position: fixed;
-			    bottom: 0;
-			    background: rgba(0, 0, 0, 0.5);
-			    color: #f1f1f1;
-			    width: 25%;
-			    padding: 20px;
-			    z-index: 2;
-			}
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%; 
+                min-height: 100%;
+                z-index: -1;
+            }
+            .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 25%;
+            padding: 20px;
+            z-index: 2;
+            font-family: "Verdana"
+            }
+
         </style>
-        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <center>
