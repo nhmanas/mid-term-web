@@ -96,8 +96,8 @@ if(isset($_POST['username']) || isset($_POST['$address'])){
         	<video autoplay muted loop id="bg">
 			  <source src="bg.mp4" type="video/mp4">
 			</video>
-        	<p>Customer number:
-            <form class="" action="customer.php" method="post">
+        <p>Customer number:
+            <form class="" action="region.php" method="post">
               <input action="" type="text" name="customer_number">
               <br>
               <button class="button button1"type="submit" name="btn_customer_number">Login</button>
