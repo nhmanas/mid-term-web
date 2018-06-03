@@ -60,17 +60,20 @@
     </head>
     <body background="pizza.jpg" style="background-repeat: no-repeat; background-size: cover;">
         <div class="content">
-        <a href="customer_login.php">
-            <button class="button button1">
-                Customer
-            </button>
-        </a>
-        <br><br>
-        <a href="admin.php">
-            <button class="button button2">
-                Administrator
-            </button>
-        </a>
+            <p>
+                This is CSE project pizza ordering website
+            </p>
+            <a href="customer_login.php">
+                <button class="button button1">
+                    Customer
+                </button>
+            </a>
+            <br><br>
+            <a href="admin.php">
+                <button class="button button2">
+                    Administrator
+                </button>
+            </a>
         </div>
     </body>
 </html>
